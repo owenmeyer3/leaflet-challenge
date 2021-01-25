@@ -1,37 +1,16 @@
-// Store our API endpoint inside queryUrl
-var queryUrl = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson';
-// var gooLink = 'https://leafletjs.com/examples/choropleth/'
-
-// Depth to color discrete function
-var depthThreshs = [-10, 10, 30, 50, 70, 90];
-var color5 = 'rgb(255,0,0)';
-var color4 = 'rgb(255,85,0)';
-var color3 = 'rgb(255,170,0)';
-var color2 = 'rgb(255,255,0)';
-var color1 = 'rgb(127,255,0)';
-var color0 = 'rgb(0,255,0)';
-function depthColor(depth) {
-    return depth > depthThreshs[5] ? color5 :
-            depth > depthThreshs[4] ? color4 :
-            depth > depthThreshs[3] ? color3 :
-            depth > depthThreshs[2] ? color2 :
-            depth > depthThreshs[1] ? color1 :
-            color0;
-}
-
-// Create our map, giving it the streetmap and earthquakes layers to display on load
-var myMap = L.map("mapid", {
-    center: [38.6, -98],
-    zoom: 4.45
-});
-
-// Make streetmap
+// Make background layer
 var backLayer = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     tileSize: 512,
     maxZoom: 18,
     zoomOffset: -1,
     id: "mapbox/streets-v11",
     accessToken: API_KEY
+});
+
+// Create our map, giving it the streetmap and earthquakes layers to display on load
+var myMap = L.map("mapid", {
+    center: [38.6, -98],
+    zoom: 4.45
 });
 
 // Make legend
