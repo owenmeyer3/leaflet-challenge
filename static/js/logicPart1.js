@@ -23,7 +23,7 @@ legend.onAdd = function (map) {
     for (var i = 0; i < depthThreshs.length; i++) {
         div.innerHTML +=
             '<div><i style="background:' + depthColor(depthThreshs[i] + 1) + '"></i> ' +
-            depthThreshs[i] + (depthThreshs[i + 1] ? '&ndash;' + depthThreshs[i + 1] + '</div><br>': '+</div>')
+            depthThreshs[i] + (depthThreshs[i + 1] ? '&ndash;' + depthThreshs[i + 1] + ' km</div><br>': ' km +</div>')
     }
     return div;
 };
